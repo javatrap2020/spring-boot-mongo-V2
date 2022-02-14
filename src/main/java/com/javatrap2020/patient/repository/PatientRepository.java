@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface PatientRepository  extends MongoRepository<Patient, Long> {
-    Optional<Patient> finByEmail(@Param("email") String email);
+    Optional<Patient> findByEmail(@Param("email") String email);
 }

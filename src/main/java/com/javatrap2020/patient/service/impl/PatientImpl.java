@@ -27,7 +27,7 @@ public class PatientImpl implements PatientService {
 
     @Override
     public Patient save(Patient patient) throws UnknownHostException {
-        if (patientRepository.finByEmail(patient.getEmail()).isPresent()) {
+        if (patientRepository.findByEmail(patient.getEmail()).isPresent()) {
             throw new PatientAlreadyExistException();
         }
         Patient patient1 = patientRepository.save(patient);
@@ -42,7 +42,7 @@ public class PatientImpl implements PatientService {
     @Override
     public Patient update(Patient patient) {
         log.info("Updating patient {}", patient);
-        Patient patient1 = patientRepository.finByEmail(patient.getEmail()).orElseThrow(PatientNotFoundException::new);
+        Patient patient1 = patientRepository.findByEmail(patient.getEmail()).orElseThrow(PatientNotFoundException::new);
         patient1.setName(patient.getName());
         return patientRepository.save(patient1);
     }
