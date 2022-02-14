@@ -21,5 +21,5 @@ public class Patient implements Serializable {
     private String name;
     @Indexed(unique = true)
     private String email;
-    
+
 }
