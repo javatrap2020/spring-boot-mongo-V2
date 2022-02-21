@@ -44,6 +44,7 @@ public class PatientImpl implements PatientService {
         log.info("Updating patient {}", patient);
         Patient patient1 = patientRepository.findByEmail(patient.getEmail()).orElseThrow(PatientNotFoundException::new);
         patient1.setName(patient.getName());
+        patient1.setMessage(patient.getMessage());
         return patientRepository.save(patient1);
     }
 }
