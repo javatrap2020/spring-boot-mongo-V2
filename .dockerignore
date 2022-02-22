@@ -1,5 +1,4 @@
-node_modules
-npm-debug.log
+
 
 **/Dockerfile
 **/.dockerignore
@@ -7,6 +6,7 @@ npm-debug.log
 **.env
 
 /.idea
+
 
 **/.github
 .git
