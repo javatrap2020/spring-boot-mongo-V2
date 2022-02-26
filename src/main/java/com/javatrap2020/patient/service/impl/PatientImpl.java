@@ -41,10 +41,21 @@ public class PatientImpl implements PatientService {
 
     @Override
     public Patient update(Patient patient) {
-        log.info("Updating patient {}", patient);
         Patient patient1 = patientRepository.findByEmail(patient.getEmail()).orElseThrow(PatientNotFoundException::new);
         patient1.setName(patient.getName());
         patient1.setMessage(patient.getMessage());
+        log.info("Updating patient {}", patient);
         return patientRepository.save(patient1);
+    }
+
+//    @Override
+//    public void delete(String id) {
+//        patientRepository.deleteById(id);
+//        log.info("Deleting patient {}", id);
+//    }
+
+    @Override
+    public void delete(String email) {
+        patientRepository.deleteById(patientRepository.findByEmail(email).orElseThrow(PatientNotFoundException::new).getId());
     }
 }

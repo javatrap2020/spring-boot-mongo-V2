@@ -13,4 +13,6 @@ public interface PatientService {
 
     Patient update(Patient patient);
 
+    void delete(String email);
+
 }

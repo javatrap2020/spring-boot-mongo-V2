@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface PatientRepository  extends MongoRepository<Patient, Long> {
+public interface PatientRepository  extends MongoRepository<Patient, String> {
     Optional<Patient> findByEmail(@Param("email") String email);
 }
