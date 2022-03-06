@@ -39,7 +39,7 @@ public class PatientController {
         return patientService.update(patient);
     }
 
-    @DeleteMapping("/{email}")
+    @DeleteMapping("/email-delete/{email}")
     public void delete(@PathVariable("email") String email) {
         patientService.delete(email);
     }
